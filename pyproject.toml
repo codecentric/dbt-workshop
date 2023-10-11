@@ -7,17 +7,18 @@ readme = "README.md"
 packages = []
 
 [tool.poetry.dependencies]
-python = "^3.9"
 dbt-bigquery = "^1.6"
+dbt-core = "^1.6.5"
 dbt-postgres = "^1.6"
+python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
+data-diff = {version = "^0.8", extras=["postgres"]}
+elementary-data = "^0.10"
 pre-commit = "^3.3"
+ruff = "^0.0.274"
 sqlfluff = "^2.3"
 sqlfluff-templater-dbt = "^2.3"
-ruff = "^0.0.274"
-elementary-data = "^0.10"
-data-diff = {version = "^0.8", extras=["postgres"]}
 
 [build-system]
 requires = ["poetry-core"]

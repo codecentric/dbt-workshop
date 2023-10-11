@@ -3,11 +3,12 @@ dbt_workshop: # profile name
   outputs: # this is the list of targets
     dev:
       type: bigquery
+      location: EU
       method: service-account
       project: data2day-dbt-workshop
       dataset: jaffle_shop # You can also use "schema" here
       threads: 2
-      keyfile: [/path/to/bigquery/keyfile.json]
+      keyfile: path/to/bigquery/keyfile.json
     dev-postgres:
       type: postgres
       host: localhost

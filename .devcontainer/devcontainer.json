@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "name": "Python",
+  "build": { "dockerfile": "Dockerfile" },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+      "ghcr.io/devcontainers-contrib/features/direnv:1": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:2.7.0": {},
+      "ghcr.io/dhoeric/features/google-cloud-cli:1": {}
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "poetry install && poetry run pre-commit install",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"PKief.material-icon-theme",
+		"charliermarsh.ruff",
+		"eamodio.gitlens",
+		"mechatroner.rainbow-csv",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-toolsai.jupyter",
+		"ms-vscode-remote.remote-ssh",
+		"mutantdino.resourcemonitor",
+		"shd101wyy.markdown-preview-enhanced",
+		"usernamehw.errorlens",
+		"samuelcolvin.jinjahtml",
+		"dorzey.vscode-sqlfluff"
+	],
+      "settings": {
+        "python.formatting.provider": "black",
+        "python.languageServer": "Pylance",
+        "python.linting.enabled": false,
+        "python.linting.flake8Enabled": false,
+        "python.linting.pylintEnabled": false,
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.terminal.activateEnvironment": true,
+        "python.venvPath": "/home/vscode/.cache/pypoetry/virtualenvs",
+        "ruff.importStrategy": "fromEnvironment",
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "vscode",
+  "mounts": [
+    // *** Sync ZSH history on host machine and in dev container ***
+    // Consistency is different on Linux and Mac, see
+    // https://www.docker.com/blog/user-guided-caching-in-docker-for-mac/
+    // "source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.zsh_history,type=bind,consistency=consistent",
+    // "source=${localEnv:HOME}/.config/gcloud,target=/home/vscode/.config/gcloud,type=bind,consistency=consistent"
+  ]
+}

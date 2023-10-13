@@ -8,6 +8,7 @@ packages = []
 
 [tool.poetry.dependencies]
 dbt-bigquery = "^1.6"
+dbt-core = "^1.6.5"
 dbt-postgres = "^1.6"
 python = "^3.9"
 

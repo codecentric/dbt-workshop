@@ -1,0 +1,35 @@
+version: 2
+
+exposures:
+
+  - name: most_valuable_users
+    label: Most Valuable Users by revenue
+    type: dashboard
+    maturity: high
+    url: https://bi.tool/dashboards/1
+    description: >
+      Our Cash-Cows
+
+    depends_on:
+      - ref('customers')
+
+    owner:
+      name: Ben Business
+      email: import-dashboards@jaffleshop.com
+
+
+  - name: datascience_magic
+    label: A Demand Forecast
+    type: ml
+    maturity: low
+    description: >
+      Our Cash-Cows
+
+    depends_on:
+      - ref('stg_customers')
+      - ref('stg_orders')
+      - ref('stg_payments')
+
+    owner:
+      name: Callum McData
+      email: data@jaffleshop.com

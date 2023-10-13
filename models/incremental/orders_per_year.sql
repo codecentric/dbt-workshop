@@ -11,7 +11,7 @@ with base as (
         EXTRACT(year from order_date) as order_year,
         COUNT(*) as order_count
     from
-        {{ ref('raw_orders_copy') }} -- Use the name of your source table
+        {{ ref('stg_orders_incr') }} -- Use the name of your source table
     where
         -- For incremental logic: only select records that are new or updated since the last run
         {% if is_incremental() %}

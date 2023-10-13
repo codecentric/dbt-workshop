@@ -38,7 +38,7 @@ Plugins:
 
 Make sure you also installed the
 required [adapter for you database](https://docs.getdbt.com/docs/supported-data-platforms)
-e.g. postgres or bigquery
+e.g. dbt-postgres or dbt-bigquery
 
 The DB connection has to be setup in a `profiles.yml` file which can be generated using the
 provided [profiles_template.yml](profiles_template.yml). We provide examples for a bigquery and a postgres connection.
@@ -53,7 +53,7 @@ dbt deps
 
 ### Further python packages
 
-Beside `dbt` we use further python packages in the workshop, e.g. `elementary-data`, `pre-commit` and `sql-fluff`. The
+Beside `dbt` we use further python packages in the workshop, e.g. `elementary-data`, `data-diff`, `pre-commit` and `sql-fluff`. The
 easiest way to install those packages is to use [poetry](https://python-poetry.org/) and use the
 provided `pyproject.toml`. But every other way (pipenv, pip + virtualenv, ...) to install pip packages will also work.
 

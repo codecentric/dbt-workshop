@@ -1,7 +1,7 @@
 # default config taken from https://docs.sqlfluff.com/en/stable/configuration.html
 [sqlfluff]
 templater = dbt
-dialect = bigquery
+dialect = postgres
 max_line_length = 120
 
 [sqlfluff:rules:capitalisation.keywords]

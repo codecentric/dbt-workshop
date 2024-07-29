@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
@@ -10,20 +10,11 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb=200"]
         exclude: ^seeds/
-  - repo: https://github.com/psf/black
-    rev: 23.3.0
-    hooks:
-      - id: black
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.0.262"
-    hooks:
-      - id: ruff
-        args: [--fix, --exit-non-zero-on-fix]
   - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 2.3.2
+    rev: 3.1.0
     hooks:
       - id: sqlfluff-lint
-        additional_dependencies: ['dbt-bigquery', 'sqlfluff-templater-dbt']
+        additional_dependencies: ['dbt-postgres', 'sqlfluff-templater-dbt']
       - id: sqlfluff-fix
-        additional_dependencies: ['dbt-bigquery', 'sqlfluff-templater-dbt']
+        additional_dependencies: ['dbt-postgres', 'sqlfluff-templater-dbt']
       # args: [--rules, "LT02,CP02"]

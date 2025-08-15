@@ -2,18 +2,5 @@ dbt_workshop: # profile name
   target: dev # this is the default target
   outputs: # this is the list of targets
     dev:
-      type: bigquery
-      location: EU
-      method: service-account
-      project: data2day-dbt-workshop
-      dataset: jaffle_shop # You can also use "schema" here
-      threads: 2
-      keyfile: path/to/bigquery/keyfile.json
-    dev-postgres:
-      type: postgres
-      host: localhost
-      user: develop
-      password: develop
-      port: 5432
-      dbname: postgres
-      schema: analysis
+      type: duckdb
+      path: sample_data.duckdb

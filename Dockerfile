@@ -1,6 +1,6 @@
-FROM ghcr.io/dbt-labs/dbt-postgres:1.6.1
+FROM ghcr.io/dbt-labs/dbt-duckdb:1.9.4
 
-RUN pip install elementary-data==0.10.0
+RUN pip install elementary-data==0.19.0
 
 WORKDIR /usr/app
 COPY . .

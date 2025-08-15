@@ -6,7 +6,8 @@ sources:
       - name: raw_customers
         data_tests:
           - dbt_expectations.expect_table_row_count_to_be_between:
-                min_value: 30
+                arguments:
+                  min_value: 30
         columns:
           - name: id
             data_tests:
@@ -24,8 +25,9 @@ sources:
           - name: user_id
             data_tests:
               - relationships:
-                  to: source('raw','raw_customers')
-                  field: id
+                  arguments:
+                    to: source('raw','raw_customers')
+                    field: id
           - name: order_data
           - name: status
 
@@ -38,11 +40,13 @@ sources:
           - name: order_id
             data_tests:
               - relationships:
-                  to: source('raw','raw_orders')
-                  field: id
+                  arguments:
+                    to: source('raw','raw_orders')
+                    field: id
           - name: payment_method
           - name: amount
             data_tests:
               - dbt_expectations.expect_column_max_to_be_between:
-                  min_value: 3000
-                  max_value: 4000
+                  arguments:
+                    min_value: 3000
+                    max_value: 4000

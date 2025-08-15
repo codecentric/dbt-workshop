@@ -32,7 +32,7 @@ UNION ALL
 SELECT
     id + max_existing_id as id,
     user_id,
-    date_add(order_date, INTERVAL 1 YEAR) as order_date,
+    order_date::date + INTERVAL '1 year' as order_date,
     status
 FROM
     base

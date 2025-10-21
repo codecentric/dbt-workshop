@@ -3,4 +3,4 @@ dbt_workshop: # profile name
   outputs: # this is the list of targets
     dev:
       type: duckdb
-      path: sample_data.duckdb
+      path: dbt_workshop.duckdb

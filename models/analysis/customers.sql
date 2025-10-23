@@ -12,7 +12,6 @@ orders as (
 
 payments as (
 
-    select * from {{ ref('stg_payments') }}
 
 ),
 
@@ -32,17 +31,6 @@ customer_orders as (
 
 customer_payments as (
 
-    select
-        orders.customer_id,
-        sum(payments.amount) as total_amount
-
-    from payments
-
-    left join orders
-        on
-            payments.order_id = orders.order_id
-
-    group by orders.customer_id
 
 ),
 
@@ -54,8 +42,7 @@ final as (
         customers.last_name,
         customer_orders.first_order,
         customer_orders.most_recent_order,
-        customer_orders.number_of_orders,
-        customer_payments.total_amount as customer_lifetime_value
+        customer_orders.number_of_orders
 
     from customers
 
